@@ -9,7 +9,7 @@ Usage
 Place files in Yii's extension folder.
 
 ```php
-$this->Widget('application.extensions.morris.MorrisChartWidget', array(
+$this->widget('application.extensions.morris.MorrisChartWidget', array(
     'id'      => 'myChartElement',
     'options' => array(
         'chartType' => 'Area',
