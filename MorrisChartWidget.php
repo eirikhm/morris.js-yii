@@ -8,7 +8,7 @@
     $this->widget('application.extensions.morris.MorrisChartWidget', array(
         'id'      => 'myChartElement',
         'options' => array(
-        'chartType' => 'Area',
+        'chartType' => MorrisChartWidget::CHART_AREA,
         'data'      => array(
             array('y' => 2006, 'a' => 100, 'b' => 90),
             array('y' => 2007, 'a' => 40, 'b' => 60),
@@ -30,6 +30,10 @@ class MorrisChartWidget extends CWidget
     public $options = array();
     public $htmlOptions = array();
 
+    const CHART_AREA = 'Area';
+    const CHART_LINE = 'Line';
+    const CHART_BAR = 'Bar';
+    const CHART_DONUT = 'Donut';
 
     public function run()
     {
