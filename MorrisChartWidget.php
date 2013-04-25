@@ -5,7 +5,7 @@
  * Simple wrapper for Morris.js - http://www.oesmith.co.uk/morris.js/
  *
  * Usage:
-    $this->Widget('application.extensions.morris.MorrisChartWidget', array(
+    $this->widget('application.extensions.morris.MorrisChartWidget', array(
         'id'      => 'myChartElement',
         'options' => array(
         'chartType' => 'Area',
@@ -67,6 +67,9 @@ class MorrisChartWidget extends CWidget
 
         $scriptFile = 'raphael-min.js';
         $cs->registerScriptFile("$baseUrl/$scriptFile");
+
+        $stylefile = 'morris.css';
+        $cs->registerCssFile("$baseUrl/$stylefile");
         $cs->registerScript($id, $embeddedScript, CClientScript::POS_LOAD);
     }
 }
