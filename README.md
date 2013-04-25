@@ -6,6 +6,8 @@ morris.js-yii
 Usage
 =====
 
+Place files in Yii's æextension folder.
+
 ```php
 $this->Widget('application.extensions.morris.MorrisChartWidget', array(
     'id'      => 'myChartElement',
