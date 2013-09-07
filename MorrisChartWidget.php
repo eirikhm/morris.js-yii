@@ -59,8 +59,8 @@ class MorrisChartWidget extends CWidget
         if(empty($this->jsArrayName))
             return '';
         $cs = My::app()->clientScript;
-        $cs->registerScript($this->jsArrayName.'MorrisArrayDeclaration', 'window.'.$this->jsArrayName.' = new Array();', ClientScript::POS_HEAD); //the ID makes sure it can't be registered twice
-        return 'window.'.$this->jsArrayName.'['.$id.'] = ';
+        $cs->registerScript($this->jsArrayName.'MorrisArrayDeclaration', 'window.'.$this->jsArrayName.' = {};', ClientScript::POS_HEAD); //the ID makes sure it can't be registered twice
+        return 'window.'.$this->jsArrayName.'["'.$this->getId().'"] = ';
     }
 
     /**
