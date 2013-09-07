@@ -29,6 +29,8 @@ class MorrisChartWidget extends CWidget
 {
     public $options = array();
     public $htmlOptions = array();
+    
+    public $jsArrayName = 'MorrisObjects';
 
     const CHART_AREA = 'Area';
     const CHART_LINE = 'Line';
@@ -49,8 +51,16 @@ class MorrisChartWidget extends CWidget
         $jsOptions      = CJavaScript::encode($this->options);
 
         $chartType = $this->options['chartType'];
-
-        $this->registerScripts(__CLASS__ . '#' . $id, "Morris.{$chartType}($jsOptions);");
+        
+        $this->registerScripts(__CLASS__ . '#' . $id, $this->declareArray()."Morris.{$chartType}($jsOptions);");
+    }
+    
+    protected function declareArray() {
+        if(empty($this->jsArrayName))
+            return '';
+        $cs = My::app()->clientScript;
+        $cs->registerScript($this->jsArrayName.'MorrisArrayDeclaration', 'window.'.$this->jsArrayName.' = {};', ClientScript::POS_HEAD); //the ID makes sure it can't be registered twice
+        return 'window.'.$this->jsArrayName.'["'.$this->getId().'"] = ';
     }
 
     /**
