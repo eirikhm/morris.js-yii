@@ -55,11 +55,14 @@ class MorrisChartWidget extends CWidget
         $this->registerScripts(__CLASS__ . '#' . $id, $this->declareArray()."Morris.{$chartType}($jsOptions);");
     }
     
-    protected function declareArray() {
-        if(empty($this->jsArrayName))
+    protected function declareArray() 
+    {
+        if(empty($this->jsArrayName)) 
+        {
             return '';
-        $cs = My::app()->clientScript;
-        $cs->registerScript($this->jsArrayName.'MorrisArrayDeclaration', 'window.'.$this->jsArrayName.' = {};', ClientScript::POS_HEAD); //the ID makes sure it can't be registered twice
+        }
+        $cs = Yii::app()->clientScript;
+        $cs->registerScript($this->jsArrayName.'MorrisArrayDeclaration', 'window.'.$this->jsArrayName.' = {};', CClientScript::POS_HEAD); //the ID makes sure it can't be registered twice
         return 'window.'.$this->jsArrayName.'["'.$this->getId().'"] = ';
     }
 
