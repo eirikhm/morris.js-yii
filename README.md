@@ -94,3 +94,6 @@ $this->widget('application.extensions.morris.MorrisChartWidget', array(
 License
 =======
 BSD / MIT.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/eirikhm/morris.js-yii/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
